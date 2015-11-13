@@ -26,7 +26,30 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': 'OAuthValidateAccessToken',
+
+  OAuthController: {
+    '*' : 'OAuthValidateAccessToken',
+    token : 'OAuthPublicClient'
+  },
+
+  UsersController: {
+    '*' : 'OAuthValidateAccessToken',
+    'register' : true,
+    'verify/:email' : true
+  },
+
+  ClientsController: {
+    '*' : 'OAuthValidateAccessToken',
+    'register' : true,
+    'verify/:email' : true 
+  },
+
+  ClientsController: {
+    '*' : 'OAuthValidateAccessToken',
+    'register' : true,
+    'verify/:email' : true
+  }
 
   /***************************************************************************
   *                                                                          *
